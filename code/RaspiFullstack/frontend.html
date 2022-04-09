@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Team 13 Vote</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script> 
+            i = 0
+            function toggle(button) {
+                if (button.value == "Reset") {
+                    i += 1
+                    text = '/api?q='
+                    fetch(text.concat(i))
+
+                }
+            } 
+
+            var intervalId = window.setInterval(function(){
+                $.get('/data', function (frontendData) {
+                    // console.log(frontendData[0] + " " + frontendData[1] + " " + frontendData[4])
+                    document.getElementById("redCount").textContent=frontendData[0];
+                    document.getElementById("greenCount").textContent=frontendData[1];
+                    document.getElementById("yellowCount").textContent=frontendData[2];
+                    document.getElementById("result1").textContent=frontendData[3];
+                    document.getElementById("result2").textContent=frontendData[4];
+                    document.getElementById("result3").textContent=frontendData[5];
+                    document.getElementById("result4").textContent=frontendData[6];
+                    document.getElementById("result5").textContent=frontendData[7];
+                    document.getElementById("result6").textContent=frontendData[8];
+                })
+            }, 1000);
+
+        </script>
+    </head>
+
+    <body>
+        <div class="w3-panel w3-animate-opacity">
+            <div class="w3-tag w3-jumbo" id="voteResult">Current Results</div>
+        </div>
+
+        <div class="w3-container w3-grey">
+            <h1><b>Poll Leader:</b></h1>
+            <h1 id="pollLeader">ID 2</h1>
+        </div>
+        <br>
+        <input type="button" id="resetButton" value="Reset" onclick="toggle(this);">
+        <br>
+        <br>
+
+        <div class="w3-row-padding">
+            <div class="w3-third">
+                <div class="w3-card">
+                    <div class="w3-container w3-pale-red">
+                        <h1><b> R </b></h1>
+                    </div>
+                    <div class="w3-container w3-xlarge">
+                        <p>Vote #: <b id="redCount">0</b> <p> 
+                    </div>
+                </div>
+                <br>
+
+               
+
+            </div>
+        
+            <div class="w3-third">
+                <div class="w3-card">
+                    <div class="w3-container w3-pale-green">
+                        <h1><b>G</b></h1>
+                    </div>
+                    <div class="w3-container w3-xlarge">
+                        <p>Vote #: <b id="greenCount">0</b> <p> 
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-card">
+                    <div class="w3-container w3-pale-yellow">
+                        <h1><b>Y</b></h1> 
+                    </div>
+                    <div class="w3-container w3-xlarge">
+                        <p>Vote #: <b id="yellowCount">0</b> <p> 
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <div class="w3-card">
+                <div class="w3-container w3-white">
+                    <h1><b>Voter ID: 1</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result1"><small>[]</small></p>
+                </div>
+            </div>
+            <br>
+    
+            <div class="w3-card">
+                <div class="w3-container w3-green">
+                    <h1><b>Voter ID: 2</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result2"><small>[]</small></p>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-card">
+                <div class="w3-container w3-blue">
+                    <h1><b>Voter ID: 3</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result3"><small>[]</small></p>
+                </div>
+            </div>
+            <br>
+    
+            <div class="w3-card">
+                <div class="w3-container w3-teal">
+                    <h1><b>Voter ID: 4</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result4"><small>[]</small></p>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-card">
+                <div class="w3-container w3-pink">
+                    <h1><b>Voter ID: 5</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result5"><small>[]</small></p>
+                </div>
+            </div>
+            <br>
+    
+            <div class="w3-card">
+                <div class="w3-container w3-purple">
+                    <h1><b>Voter ID: 6</b></h1>
+                </div>
+                <div class="w3-container w3-xlarge">
+                    <p>Votes:<p>
+                    <p id="result6"><small>[]</small></p>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>
